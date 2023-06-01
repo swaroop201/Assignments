@@ -1,0 +1,121 @@
+#1st answer
+"""
+def arrayPairSum(nums):
+    nums.sort()
+    return sum(nums[::2])
+"""
+
+#2nd answer
+"""
+def distributeCandies(candyType):
+    max_candies = len(candyType) // 2
+    unique_candies = len(set(candyType))
+    if unique_candies >= max_candies:
+        return max_candies
+    else:
+        return unique_candies
+ """
+ 
+ #3rd answer
+ '''
+def findLHS(nums):
+    num_counts = {}
+    for num in nums:
+        if num in num_counts:
+            num_counts[num] += 1
+        else:
+            num_counts[num] = 1
+
+    max_length = 0
+    for num in num_counts:
+        if num + 1 in num_counts:
+            max_length = max(max_length, num_counts[num] + num_counts[num + 1])
+
+    return max_length
+'''
+
+#4th answer
+'''
+def canPlaceFlowers(flowerbed, n):
+    for i in range(len(flowerbed)):
+        if flowerbed[i] == 0 and (i == 0 or flowerbed[i-1] == 0) and (i == len(flowerbed)-1 or flowerbed[i+1] == 0):
+            flowerbed[i] = 1
+            n -= 1
+            if n == 0:
+                return True
+    return False
+'''
+
+#5th answer
+''''
+def maximumProduct(nums):
+    max1 = max2 = max3 = float('-inf')
+    min1 = min2 = float('inf')
+    for num in nums:
+        if num > max1:
+            max3 = max2
+            max2 = max1
+            max1 = num
+        elif num > max2:
+            max3 = max2
+            max2 = num
+        elif num > max3:
+            max3 = num
+        if num < min1:
+            min2 = min1
+            min1 = num
+        elif num < min2:
+            min2 = num
+    return max(max1 * max2 * max3, max1 * min1 * min2)
+    
+''''
+
+#6th asnwer
+''''
+def search(nums, target):
+    low, high = 0, len(nums) - 1
+    while low <= high:
+        mid = (low + high) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return -1
+    
+''''
+
+#7th answer
+'''
+def isMonotonic(nums):
+    increasing = decreasing = True
+    for i in range(1, len(nums)):
+        if nums[i] < nums[i-1]:
+            increasing = False
+        if nums[i] > nums[i-1]:
+            decreasing = False
+    return increasing or decreasing
+'''
+
+#8th answer
+
+'''
+def minScore(nums, k):
+    min_val = min(nums)
+    max_val = max(nums)
+    if min_val + k >= max_val - k:
+        return max_val - 2 * k - min_val
+    else:
+        return 0
+'''    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
